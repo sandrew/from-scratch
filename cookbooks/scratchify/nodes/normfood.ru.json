@@ -1,0 +1,75 @@
+{
+  "run_list": [
+    "recipe[user::data_bag]",
+    "recipe[rvm::system]",
+    "recipe[scratchify]"//,
+    //"recipe[apt]",
+    // "recipe[ssh-hardening]",
+    // "recipe[dpkg_packages]",
+    // "recipe[postgresql::server]",
+    // "recipe[postgresql::contrib]",
+    // "recipe[postgresql::libpq]",
+    // "recipe[nginx::server]",
+    // "recipe[rvm::user]",
+  ],
+
+  "users": ["deploy"],
+
+  "automatic": {
+    "ipaddress": "normfood.ru"
+  }//,
+
+//   //"set_fqdn": "<myhostname>",
+
+//   "dpkg_packages": {
+//     "pkgs": {
+//       "tzdata"     : { "action": "upgrade" }//,
+// //      "nodejs-dev" : { "action": "install" },
+// //      "imagemagick": { "action": "install" },
+// //      "htop"       : { "action": "install" }
+//     }
+//   },
+
+//   // Select Timezone you want to configure
+//   // "tz": "America/Santiago",
+
+//   // Postgresql configuration. You can create several users.
+//   "postgresql": {
+//     "shared_buffers": "256MB", // 1/4 of total memory is recommended
+//     "shared_preload_libraries": "pg_stat_statements",
+//     "users": [
+//       {
+//         "username": "deploy",
+//         "password": "123456",
+//         "superuser": true,
+//         "login": true
+//       }
+//     ]
+//   },
+
+//   // Nginx default values configuration.
+//   // Also you can specify your default site configuration.
+//   "nginx": {
+//     "user"                : "deploy",
+//     "client_max_body_size": "2m",
+//     "worker_processes"    : "auto",
+//     "worker_connections"  : 768,
+//     "repository"          : "ppa",
+//     "site"                : {
+//       "host"           : "<myhostname>",
+//       "upstream_ports" : ["3000"],
+//       "ip"             : "0.0.0.0",
+//       "listen"         : "80"
+//     }
+//   },
+
+//   // The default ruby version and gemset you’re going to use and rvm user.
+//   "rvm" : {
+//     "user_installs": [
+//       {
+//         "user"         : "deploy",
+//         "default_ruby" : "<ruby-version>@<gemset>"
+//       }
+//     ]
+//   }
+}

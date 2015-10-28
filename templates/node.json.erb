@@ -1,0 +1,31 @@
+{
+  "run_list": [
+    "recipe[rvm::system]",
+    "recipe[posgresql::server]",
+    "recipe[posgresql::config_pgtune]",
+    "recipe[user::data_bag]",
+    "recipe[scratchify]"
+  ],
+
+  "users": ["deploy"],
+
+  "rvm": {
+    "default_ruby": "2.2.3"
+  },
+
+  "postgresql": {
+    "version": "9.4",
+    "enable_pgdg_yum": true,
+    "enable_pgdg_apt": true,
+    "password": {
+      "postgres": "<%= postgresql_admin_password %>"
+    },
+    "config_pgtune": {
+      "db_type": "web"
+    }
+  },
+
+  "automatic": {
+    "ipaddress": "<%= host %>"
+  }
+}

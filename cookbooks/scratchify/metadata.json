@@ -1,0 +1,36 @@
+{
+  "name": "scratchify",
+  "description": "Cookbook for FromScratch gem",
+  "long_description": "",
+  "maintainer": "Andrew Shaydurov",
+  "maintainer_email": "gearhead@it-primorye.ru",
+  "license": "MIT",
+  "platforms": {
+    "ubuntu": ">= 0.0.0",
+    "debian": ">= 0.0.0"
+  },
+  "dependencies": {
+    "user": ">= 0.0.0",
+    "rvm": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "scratchify": "run all recipes."
+  },
+  "version": "0.1.0",
+  "source_url": "",
+  "issues_url": ""
+}

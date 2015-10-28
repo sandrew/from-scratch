@@ -1,0 +1,6 @@
+{
+  "id": "deploy",
+  "name": "deploy",
+  "groups": ["deploy"],
+  "ssh_keys": ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDA0w9lFxWQta1H3pNvqvGtKTfdBahIMp9iqmxzDbwbMRZDuJ3ANNeHxebGP6F4pfjOoI9t/+l1ljgRbAXCEgi/klhjj7TMzGalzOBy5kOFfZlZO4km5wiM1QXPtgXhqe4qcnzNQkSTbh3+0h6arGV0fiHOa5Nc3hv3mnBce0M6PCpbK/PGYfc5/TJrvuMwd6K9vLUgFsiQ1vph6mncoAh0QHfbzKmDi86YyzwCyzxwwFz/ZCaYwxf11fAkydm6sNX9VxOqE16LjycFN1khe9xEyQ/wGP7uIH3LGR2VcHAPFxoaTAssyJtiF5WpNQXGCX3SyyBZf9lHjb0RP4IzYJvp gearhead@gearhead-desktop"]
+}
