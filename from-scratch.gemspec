@@ -20,12 +20,9 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec"
+  spec.add_development_dependency 'rspec', "~> 3.3.0"
   spec.add_development_dependency 'pry'
 
-  spec.add_dependency 'sshkit', '>= 1.7.1'
-  spec.add_dependency 'colorize'
-  spec.add_dependency 'activesupport', '>= 3.2.1'
   spec.add_dependency 'knife-solo'
   spec.add_dependency 'knife-solo_data_bag'
   spec.add_dependency 'chef'

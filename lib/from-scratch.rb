@@ -2,9 +2,6 @@ require 'securerandom'
 require 'erb'
 require 'fileutils'
 
-require 'pry'
-
-
 module FromScratch
   def self.run!
     app_name, host = ARGV
