@@ -1,4 +1,5 @@
 DEPENDENCIES
+  postgresql
   rvm
     git: git://github.com/fnichol/chef-rvm.git
     revision: 08ec265f277e112a5a2e4b201bd32ddfe1bb968c
@@ -8,12 +9,22 @@ DEPENDENCIES
   user
 
 GRAPH
+  apt (2.9.2)
+  build-essential (2.2.4)
+  chef-sugar (3.1.1)
   chef_gem (0.1.0)
   java (1.35.0)
+  openssl (4.0.0)
+    chef-sugar (>= 0.0.0)
+  postgresql (3.4.20)
+    apt (>= 1.9.0)
+    build-essential (>= 0.0.0)
+    openssl (~> 4.0.0)
   rvm (0.10.1)
     chef_gem (>= 0.0.0)
     java (>= 0.0.0)
   scratchify (0.1.0)
+    postgresql (>= 0.0.0)
     rvm (>= 0.0.0)
     user (>= 0.0.0)
   user (0.4.2)

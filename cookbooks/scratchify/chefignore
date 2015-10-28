@@ -94,6 +94,7 @@ Vagrantfile
 .travis.yml
 
 # Gem files #
+#############
 Gemfile
 Gemfile.lock
 Rakefile

@@ -1,39 +1,56 @@
 # FromScratch
 
-I'm sick and tired of thousands of articles "How to setup Rails app". Here is your last command to do that.
+I'm sick and tired of thousands of articles "How to setup Rails app server". Here is your last command to do that.
 
-## Installation
-
-Gemfile:
-
-```ruby
-gem 'from-scratch', group: :development
-```
-
-Then
-
-    $ bundle
+No configs, no questions. Just ~~one ring to rule them all~~ one command to get fully functional server with best security practices ready for first `cap production deploy`.
 
 ## Usage
 
-    $ bundle exec scratchify
+    $ gem install from-scratch
+    $ scratchify your_app_name your.host.com
+
+And everything is done. Then add following to your `config/deploy.rb` or `config/deploy/production.rb` for Capistrano:
+
+```ruby
+server 'your.host.com', user: 'deploy', roles: %w(app db web)
+set :deploy_to, "/home/deploy/your_app_name"
+```
 
 ## Supports
 
-![Ubuntu](http://design.ubuntu.com/wp-content/uploads/ubuntu-logo32.png)
-![RVM](https://rvm.io/images/logo.png)
-![MySQL](https://www.mysql.com/common/logos/logo-mysql-170x115.png)
+OS:
+
+  - APT-based Linux (Ubuntu, Debian)
+  - YUM-based Linux (RedHat, CentOS)
+
+## It's a kind of magic!
+
+Not actully. Just preconfigured [Chef](https://www.chef.io/). Here are the things done with the command:
+
+  - Install system-wide RVM with latest MRI (2.2.3)
+  - Install PostgreSQL, create database with user, pg_tune a little
+  - Add _deploy_ non-admin user to system specially for your app, upload your SSH pub key to it
+  - Install nginx and replace it's default site config with one prepared for rails app
+  - Generate app folder inside _deploy_'s home and generate `database.yml` and `secrets.yml`
+
+## Things you need to know
+
+Nginx config is set up to connect to unix socket placed at `/home/deploy/your_app_name/shared/tmp/sockets/application.sock`. Change it manually or config your favorite app server (Puma, Unicorn, Thin etc) to place it's socket there.
+
+You can just `ssh deploy@your.host.com` because your SSH pub key is already there.
+
+Both `postgres` and `your_app_name` DB users get (different) randomly generated passwords. You can see app-user password inside `config/database.yml`, but `postgres` password is not saved anywhere. If you need admin access to your PostgreSQL, then you should SSH as root and:
+
+    # su - postgres
+    $ psql
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+TODO
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/from-scratch.
-
+TODO
 
 ## License
 
