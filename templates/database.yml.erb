@@ -1,0 +1,7 @@
+production:
+  adapter: postgresql
+  database: '<%= node['postgresql']['databases'][0]['name'] %>'
+  username: '<%= node['postgresql']['users'][0]['username'] %>'
+  password: '<%= node['postgresql']['users'][0]['password'] %>'
+  encoding: unicode
+  host: localhost

@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'knife-solo'
   spec.add_dependency 'knife-solo_data_bag'
-  spec.add_dependency 'chef'
+  spec.add_dependency 'chef', "~> 12.5"
   spec.add_dependency 'berkshelf'
 
 
