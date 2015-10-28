@@ -6,7 +6,7 @@
   "maintainer_email": "support@hw-ops.com",
   "license": "Apache 2.0",
   "platforms": {
-    "ubuntu": "< 14.10",
+    "ubuntu": "< 14.10.0",
     "debian": ">= 0.0.0",
     "fedora": ">= 0.0.0",
     "suse": ">= 0.0.0",
@@ -19,28 +19,21 @@
   "dependencies": {
     "apt": ">= 1.9.0",
     "build-essential": ">= 0.0.0",
-    "openssl": "~> 4.0.0"
+    "openssl": "~> 4.0"
   },
   "recommendations": {
-
   },
   "suggestions": {
-
   },
   "conflicting": {
-
   },
   "providing": {
-
   },
   "replacing": {
-
   },
   "attributes": {
-
   },
   "groupings": {
-
   },
   "recipes": {
     "postgresql": "Includes postgresql::client",
@@ -48,9 +41,11 @@
     "postgresql::client": "Installs postgresql client package(s)",
     "postgresql::server": "Installs postgresql server packages, templates",
     "postgresql::server_redhat": "Installs postgresql server packages, redhat family style",
-    "postgresql::server_debian": "Installs postgresql server packages, debian family style"
+    "postgresql::server_debian": "Installs postgresql server packages, debian family style",
+    "postgresql::setup_users": "Operates with DB users",
+    "postgresql::setup_databases": "Operates with DB schemas"
   },
-  "version": "3.4.20",
+  "version": "3.4.21",
   "source_url": "",
   "issues_url": ""
 }

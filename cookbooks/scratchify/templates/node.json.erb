@@ -3,6 +3,8 @@
     "recipe[rvm::system]",
     "recipe[postgresql::server]",
     "recipe[postgresql::config_pgtune]",
+    "recipe[postgresql::setup_users]",
+    "recipe[postgresql::setup_databases]",
     "recipe[user::data_bag]",
     "recipe[scratchify]"
   ],
@@ -23,6 +25,21 @@
     "password": {
       "postgres": "<%= postgresql_admin_password %>"
     },
+    "users": [
+      {
+        "username": "<%= app_name %>",
+        "superuser": false,
+        "createdb": false,
+        "login": true,
+        "password": "<%= postgresql_user_password %>"
+      }
+    ],
+    "databases": [
+      {
+        "name": "<%= app_name %>",
+        "owner": "<%= app_name %>"
+      }
+    ],
     "config_pgtune": {
       "db_type": "web"
     }
