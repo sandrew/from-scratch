@@ -7,6 +7,7 @@ module FromScratch
     app_name, host = ARGV
     ssh_pub_key = `cat ~/.ssh/id_rsa.pub`.strip
     postgresql_admin_password = `echo -n '#{SecureRandom.base64(16)}''postgres' | openssl md5 | sed -e 's/.* /md5/'`.strip
+    postgresql_user_password = SecureRandom.base64(16)
 
     { node: ['nodes', host], user: ['data_bags/users', 'deploy'] }.each do |from, to|
       FileUtils.mkdir_p File.expand_path("../../tmp/#{to[0]}", __FILE__)

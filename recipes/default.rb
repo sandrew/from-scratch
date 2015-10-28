@@ -5,6 +5,13 @@ directory "/home/deploy/#{node['scratchify']['app_name']}/shared/config" do
   recursive true
 end
 
+directory "/home/deploy/#{node['scratchify']['app_name']}/shared/log" do
+  owner 'deploy'
+  group 'deploy'
+  mode '0755'
+  recursive true
+end
+
 template "/home/deploy/#{node['scratchify']['app_name']}/shared/config/database.yml" do
   source 'database.yml.erb'
   owner 'deploy'

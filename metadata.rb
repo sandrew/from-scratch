@@ -5,7 +5,8 @@ license          "MIT"
 description      "Cookbook for FromScratch gem"
 version          "0.1.0"
 
-recipe "scratchify", "run all recipes."
+recipe "scratchify", "sets up some user directories and files"
+recipe "nginx_site", "loads nginx site config"
 
 supports 'ubuntu'
 supports 'debian'
@@ -13,3 +14,4 @@ supports 'debian'
 depends 'user'
 depends 'rvm'
 depends 'postgresql'
+depends 'nginx'

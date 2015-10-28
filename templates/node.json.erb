@@ -6,7 +6,9 @@
     "recipe[postgresql::setup_users]",
     "recipe[postgresql::setup_databases]",
     "recipe[user::data_bag]",
-    "recipe[scratchify]"
+    "recipe[scratchify]",
+    "recipe[nginx]",
+    "recipe[scratchify::nginx_site]"
   ],
 
   "users": ["deploy"],
@@ -63,6 +65,11 @@
 
   "scratchify": {
     "app_name": "<%= app_name %>"
+  },
+
+  "nginx": {
+    "default_site_enabled": false,
+    "pid": "/var/run/nginx.pid"
   },
 
   "automatic": {

@@ -12,7 +12,8 @@
   "dependencies": {
     "user": ">= 0.0.0",
     "rvm": ">= 0.0.0",
-    "postgresql": ">= 0.0.0"
+    "postgresql": ">= 0.0.0",
+    "nginx": ">= 0.0.0"
   },
   "recommendations": {
   },
@@ -29,7 +30,8 @@
   "groupings": {
   },
   "recipes": {
-    "scratchify": "run all recipes."
+    "scratchify": "sets up some user directories and files",
+    "nginx_site": "loads nginx site config"
   },
   "version": "0.1.0",
   "source_url": "",

@@ -8,6 +8,7 @@ metadata
 cookbook 'user'
 cookbook 'rvm', github: 'fnichol/chef-rvm'
 cookbook 'postgresql', github: 'sandrew/postgresql', branch: 'develop'
+cookbook 'nginx'
 
 # cookbook 'dpkg_packages', git: "https://gitlab.acid.cl/acidlabs/chef-dpkg-packages.git"
 # cookbook 'nginx',         git: "https://gitlab.acid.cl/acidlabs/chef-nginx.git"

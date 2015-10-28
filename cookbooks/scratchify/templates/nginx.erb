@@ -1,0 +1,31 @@
+upstream <%= node['scratchify']['app_name'] %>_upstream {
+  server unix:/home/deploy/<%= node['scratchify']['app_name'] %>/shared/tmp/sockets/application.sock fail_timeout=0;
+}
+
+server {
+  listen 80 default_server;
+  server_name localhost;
+
+  client_max_body_size 10M;
+  keepalive_timeout 10;
+
+  root /home/deploy/<%= node['scratchify']['app_name'] %>/current/public;
+  error_page 500 503 502 504 /500.html;
+  try_files $uri/index.html $uri @<%= node['scratchify']['app_name'] %>_location;
+
+  location @<%= node['scratchify']['app_name'] %>_location {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+
+    proxy_pass http://<%= node['scratchify']['app_name'] %>_upstream;
+    access_log /home/deploy/<%= node['scratchify']['app_name'] %>/shared/log/nginx.access.log;
+    error_log /home/deploy/<%= node['scratchify']['app_name'] %>/shared/log/nginx.error.log;
+  }
+
+  location ^~ /assets/ {
+    gzip_static on;
+    expires max;
+    add_header Cache-Control public;
+  }
+}

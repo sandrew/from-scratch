@@ -1,4 +1,5 @@
 DEPENDENCIES
+  nginx
   postgresql
     git: git://github.com/sandrew/postgresql.git
     revision: a1f3ce3e2e22515bc175011a3e3faa0af98dd8db
@@ -13,21 +14,39 @@ DEPENDENCIES
 
 GRAPH
   apt (2.9.2)
+  bluepill (2.4.0)
+    rsyslog (>= 0.0.0)
   build-essential (2.2.4)
   chef-sugar (3.1.1)
   chef_gem (0.1.0)
   java (1.35.0)
+  nginx (2.7.6)
+    apt (~> 2.2)
+    bluepill (~> 2.3)
+    build-essential (~> 2.0)
+    ohai (~> 2.0)
+    runit (~> 1.2)
+    yum-epel (~> 0.3)
+  ohai (2.0.3)
   openssl (4.4.0)
     chef-sugar (>= 3.1.1)
+  packagecloud (0.1.0)
   postgresql (3.4.21)
     apt (>= 1.9.0)
     build-essential (>= 0.0.0)
     openssl (~> 4.0)
+  rsyslog (2.2.0)
+  runit (1.7.4)
+    packagecloud (>= 0.0.0)
   rvm (0.10.1)
     chef_gem (>= 0.0.0)
     java (>= 0.0.0)
   scratchify (0.1.0)
+    nginx (>= 0.0.0)
     postgresql (>= 0.0.0)
     rvm (>= 0.0.0)
     user (>= 0.0.0)
   user (0.4.2)
+  yum (3.8.1)
+  yum-epel (0.6.4)
+    yum (~> 3.2)
