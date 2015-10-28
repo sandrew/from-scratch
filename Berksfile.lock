@@ -5,7 +5,7 @@ DEPENDENCIES
     revision: a1f3ce3e2e22515bc175011a3e3faa0af98dd8db
     branch: develop
   rvm
-    git: git://github.com/fnichol/chef-rvm.git
+    git: git://github.com/martinisoft/chef-rvm.git
     revision: 08ec265f277e112a5a2e4b201bd32ddfe1bb968c
   scratchify
     path: .

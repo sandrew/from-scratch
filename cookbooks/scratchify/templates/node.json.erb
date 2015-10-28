@@ -1,11 +1,12 @@
 {
   "run_list": [
-    "recipe[rvm::system]",
+    "recipe[user::data_bag]",
+    "recipe[scratchify::pre_rvm]",
+    "recipe[rvm::user]",
     "recipe[postgresql::server]",
     "recipe[postgresql::config_pgtune]",
     "recipe[postgresql::setup_users]",
     "recipe[postgresql::setup_databases]",
-    "recipe[user::data_bag]",
     "recipe[scratchify]",
     "recipe[nginx]",
     "recipe[scratchify::nginx_site]"
@@ -14,9 +15,16 @@
   "users": ["deploy"],
 
   "rvm": {
-    "default_ruby": "2.2.3",
-    "rubies": ["2.2.3"],
-    "install_rubies": true,
+    "user_default_ruby": "2.2.3",
+    "user_install_rubies": true,
+    "installs": {
+      "deploy": true
+    },
+    "user_installs": [
+      {
+        "user": "deploy"
+      }
+    ],
     "gpg": {}
   },
 

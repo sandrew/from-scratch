@@ -31,7 +31,8 @@
   },
   "recipes": {
     "scratchify": "sets up some user directories and files",
-    "nginx_site": "loads nginx site config"
+    "scratchify::pre_rvm": "workaround for RVM recipe bug",
+    "scratchify::nginx_site": "loads nginx site config"
   },
   "version": "0.1.0",
   "source_url": "",

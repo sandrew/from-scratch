@@ -6,7 +6,9 @@ description      "Cookbook for FromScratch gem"
 version          "0.1.0"
 
 recipe "scratchify", "sets up some user directories and files"
-recipe "nginx_site", "loads nginx site config"
+recipe "scratchify::pre_rvm", "workaround for RVM recipe bug"
+recipe "scratchify::nginx_site", "loads nginx site config"
+
 
 supports 'ubuntu'
 supports 'debian'
