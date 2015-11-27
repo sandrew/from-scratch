@@ -13,7 +13,8 @@
     "user": ">= 0.0.0",
     "rvm": ">= 0.0.0",
     "postgresql": ">= 0.0.0",
-    "nginx": ">= 0.0.0"
+    "nginx": ">= 0.0.0",
+    "ruby_rbenv": ">= 0.0.0"
   },
   "recommendations": {
   },

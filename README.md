@@ -23,6 +23,11 @@ OS:
   - APT-based Linux (Ubuntu, Debian)
   - YUM-based Linux (RedHat, CentOS)
 
+Ruby installers:
+
+  - RVM (default)
+  - rbenv: `scratchify your_app_name your.host.com --rbenv`
+
 ## It's a kind of magic!
 
 Not actully. Just preconfigured [Chef](https://www.chef.io/). Here are the things done with the command:

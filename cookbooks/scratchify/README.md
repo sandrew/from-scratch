@@ -23,11 +23,16 @@ OS:
   - APT-based Linux (Ubuntu, Debian)
   - YUM-based Linux (RedHat, CentOS)
 
+Ruby installers:
+
+  - RVM (default)
+  - rbenv: `scratchify your_app_name your.host.com --rbenv`
+
 ## It's a kind of magic!
 
 Not actully. Just preconfigured [Chef](https://www.chef.io/). Here are the things done with the command:
 
-  - Install system-wide RVM with latest MRI (2.2.3)
+  - Install user-wide RVM with latest MRI (2.2.3)
   - Install PostgreSQL, create database with user, pg_tune a little
   - Add _deploy_ non-admin user to system specially for your app, upload your SSH pub key to it
   - Install nginx and replace it's default site config with one prepared for rails app
@@ -46,11 +51,11 @@ Both `postgres` and `your_app_name` DB users get (different) randomly generated 
 
 ## Development
 
-TODO
+Feel free to create bug-reports and feature-requests here on [Issues page](https://github.com/sandrew/from-scratch/issues)
 
 ## Contributing
 
-TODO
+All help is highly appreciated. I'll be thankful for recipes fixes and advices as well as new features implementations. Just fork and pull-request when you have some proposals.
 
 ## License
 

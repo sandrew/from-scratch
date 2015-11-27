@@ -1,3 +1,3 @@
-module FromScratch
-  VERSION = "0.4.0"
+class FromScratch
+  VERSION = "0.6.0"
 end

@@ -1,8 +1,13 @@
 {
   "run_list": [
     "recipe[user::data_bag]",
+<% if @options.ruby_installer == 'rvm' %>
     "recipe[scratchify::pre_rvm]",
     "recipe[rvm::user]",
+<% elsif @options.ruby_installer == 'rbenv' %>
+    "recipe[ruby_build]",
+    "recipe[ruby_rbenv::user]",
+<% end %>
     "recipe[postgresql::server]",
     "recipe[postgresql::config_pgtune]",
     "recipe[postgresql::setup_users]",
@@ -14,6 +19,7 @@
 
   "users": ["deploy"],
 
+<% if @options.ruby_installer == 'rvm' %>
   "rvm": {
     "user_default_ruby": "2.2.3",
     "user_install_rubies": true,
@@ -27,27 +33,42 @@
     ],
     "gpg": {}
   },
+<% elsif @options.ruby_installer == 'rbenv' %>
+  "rbenv": {
+    "user_installs": [
+      { "user": "deploy",
+        "rubies": [{
+          "name": "2.2.3",
+          "environment": {
+            "RUBY_CONFIGURE_OPTS": "--disable-install-doc"
+          }
+        }],
+        "global": "2.2.3"
+      }
+    ]
+  },
+<% end %>
 
   "postgresql": {
     "version": "9.4",
     "enable_pgdg_yum": true,
     "enable_pgdg_apt": true,
     "password": {
-      "postgres": "<%= postgresql_admin_password %>"
+      "postgres": "<%= @options.postgresql_admin_password %>"
     },
     "users": [
       {
-        "username": "<%= app_name %>",
+        "username": "<%= @options.app_name %>",
         "superuser": false,
         "createdb": false,
         "login": true,
-        "password": "<%= postgresql_user_password %>"
+        "password": "<%= @options.postgresql_user_password %>"
       }
     ],
     "databases": [
       {
-        "name": "<%= app_name %>",
-        "owner": "<%= app_name %>"
+        "name": "<%= @options.app_name %>",
+        "owner": "<%= @options.app_name %>"
       }
     ],
     "pg_hba": [
@@ -72,7 +93,7 @@
   },
 
   "scratchify": {
-    "app_name": "<%= app_name %>"
+    "app_name": "<%= @options.app_name %>"
   },
 
   "nginx": {
@@ -81,6 +102,6 @@
   },
 
   "automatic": {
-    "ipaddress": "<%= host %>"
+    "ipaddress": "<%= @options.host %>"
   }
 }
