@@ -5,7 +5,7 @@ require 'optparse'
 require 'ostruct'
 
 class FromScratch
-  DEFAULTS = { ruby_installer: 'rvm' }
+  DEFAULTS = { ruby_installer: 'rvm', ruby_version: '2.2.4' }
 
   attr_accessor :options
 
@@ -49,6 +49,10 @@ class FromScratch
 
       args.on '--rbenv', 'Use RBENV instead of RVM' do
         @options.ruby_installer = 'rbenv'
+      end
+
+      args.on '--ruby [VERSION]', "Choose specific ruby version instead of latest MRI" do |ruby_version|
+        @options.ruby_version = ruby_version
       end
 
       args.on '-h', '--help', 'Prints this help' do

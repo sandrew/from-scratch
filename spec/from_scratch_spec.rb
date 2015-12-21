@@ -60,6 +60,12 @@ describe FromScratch do
 
       its(:ruby_installer) { is_expected.to eq('rbenv') }
     end
+
+    context 'with --ruby jruby' do
+      let(:argv) { [app_name, host, '--ruby', 'jruby'] }
+
+      its(:ruby_version) { is_expected.to eq('jruby') }
+    end
   end
 
   it 'has a version number' do

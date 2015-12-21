@@ -21,7 +21,7 @@
 
 <% if @options.ruby_installer == 'rvm' %>
   "rvm": {
-    "user_default_ruby": "2.2.3",
+    "user_default_ruby": "<%= @options.ruby_version %>",
     "user_install_rubies": true,
     "installs": {
       "deploy": true
@@ -38,12 +38,12 @@
     "user_installs": [
       { "user": "deploy",
         "rubies": [{
-          "name": "2.2.3",
+          "name": "<%= @options.ruby_version %>",
           "environment": {
             "RUBY_CONFIGURE_OPTS": "--disable-install-doc"
           }
         }],
-        "global": "2.2.3"
+        "global": "<%= @options.ruby_version %>"
       }
     ]
   },
